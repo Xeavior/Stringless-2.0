@@ -42,15 +42,15 @@ public class Attack_Controller : MonoBehaviour {
 
         target = GameObject.FindGameObjectWithTag( "player" );
 
-<<<<<<< HEAD
-        target_health = target.GetComponent( typeof( PlayerHealth ) ) as PlayerHealth;
+//<<<<<<< HEAD
+        //target_health = target.GetComponent( typeof( PlayerHealth ) ) as PlayerHealth;
 
         range_squared = range * range;
 
         initial_delay = atk_delay;
-=======
+//=======
         //target_health = target.GetComponent( typeof( PlayerHealth ) ) as PlayerHealth;
->>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
+//>>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
 	}
 
 	// Update is called once per frame
@@ -78,11 +78,11 @@ public class Attack_Controller : MonoBehaviour {
         }
         else if ( distance_to_player <= range_squared )
         {
-<<<<<<< HEAD
+//<<<<<<< HEAD
             atk_delay -= 1.0f;
-=======
+//=======
             //target_health.DamageDealt( damage );
->>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
+//>>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
         }
 
         distance_to_player = GetDistanceSquared( target );

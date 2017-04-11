@@ -1,10 +1,12 @@
-<<<<<<< HEAD
-Base path: C:/Program Files/Unity/Editor/Data
-=======
-<<<<<<< HEAD
-Base path: D:/Programs/Editor/Data
-=======
 Base path: C:/Unity/Editor/Data
->>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
->>>>>>> origin/master
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=708 outsize=708 ok=1
+Cmd: preprocess
+  insize=883 outsize=883 ok=1
+Cmd: preprocess
+  insize=1485 outsize=445 ok=1
+Cmd: preprocess
+  insize=2355 outsize=849 ok=1
+Cmd: preprocess
+  insize=792 outsize=792 ok=1

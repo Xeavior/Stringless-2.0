@@ -12,10 +12,11 @@ public class EnemyAI : MonoBehaviour
 
     // How many times each second we will update our path
     public float updateRate = 2f;
+    private float space;
 
     //attacking flag for animation and other tracking purposes.
-    private bool attacking = false;
-
+    private bool attacking = false, startedPath = false;
+   
     // Caching
     private Seeker seeker;
     private Rigidbody2D rb;
@@ -44,20 +45,11 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         Debug.Log(transform.tag);
-
-        if (target == null)
-        {
-            if (!searchingForPlayer)
-            {
-                searchingForPlayer = true;
-                StartCoroutine(SearchForPlayer());
-            }
-            return;
-        }
-        StartCoroutine(UpdatePath());
+   
     }
     IEnumerator SearchForPlayer()
     {
+
         GameObject sResult = GameObject.FindGameObjectWithTag("Player");
         if (sResult == null)
         {
@@ -98,6 +90,28 @@ public class EnemyAI : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //distance between seeker a
+        space = Vector3.Distance(transform.position, target.transform.position);
+        if (space <= aggroRange)
+        {
+            //Debug.Log(space);
+            if (!startedPath)
+            {
+                startedPath = true;
+                if (target == null)
+                {
+                    if (!searchingForPlayer)
+                    {
+                        searchingForPlayer = true;
+                        StartCoroutine(SearchForPlayer());
+                    }
+                    return;
+                }
+
+
+                StartCoroutine(UpdatePath());
+            }
+        }
         if (target == null)
         {
             if (!searchingForPlayer)
@@ -130,8 +144,6 @@ public class EnemyAI : MonoBehaviour
         //distance between seeker and next waypoint
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
 
-        //distance between seeker a
-        float space = Vector3.Distance(transform.position,target.transform.position);
         if (space <= aggroRange)
         {
             //Move the AI
@@ -141,7 +153,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (rb.velocity.x == 0 && !attacking)
                 {
-                    Debug.Log("I am jumping");
+                    //Debug.Log("I am jumping");
                     rb.velocity = new Vector2(0, 1 * jumpforce);
                 }
             }
