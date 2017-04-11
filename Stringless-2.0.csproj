@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Sprites\SpritesDemo\Enemies\Goblin\GoblinAnimationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh.shader" />
