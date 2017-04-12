@@ -93,12 +93,11 @@
     <Compile Include="Assets\2D Camera Boundaries and Transitions\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Attack_Controller.cs" />
     <Compile Include="Assets\Scripts\BatAnimController.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\BoundaryScript.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Hitbox_Controller.cs" />
-    <Compile Include="Assets\Scripts\Inventory Editor.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\OldScripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\OldScripts\Grass.cs" />
     <Compile Include="Assets\Scripts\OldScripts\MidgetAI.cs" />
@@ -106,7 +105,6 @@
     <Compile Include="Assets\Scripts\OldScripts\lockedBox.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Sprites\SpritesDemo\Enemies\Goblin\GoblinAnimationController.cs" />
   </ItemGroup>
   <ItemGroup>

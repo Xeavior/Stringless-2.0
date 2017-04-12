@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public GUIText scoreText;
-    public GUIText restartText;
-    public GUIText gameOverText;
+    public Text scoreText;
+    public Text restartText;
+    public Text gameOverText;
 
     private bool gameOver;
     private bool restart;

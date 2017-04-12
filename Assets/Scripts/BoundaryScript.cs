@@ -20,7 +20,7 @@ public class BoundaryScript : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "player" && transform.tag == "boundary")
         {
