@@ -20,6 +20,8 @@ public class Hitbox_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         target = GameObject.FindGameObjectWithTag( "player" );
+
+        this.transform.localScale = new Vector3( width, height, 0f );
 	}
 
 	// Update is called once per frame

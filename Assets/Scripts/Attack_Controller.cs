@@ -5,15 +5,17 @@ using UnityEngine;
 public class Attack_Controller : MonoBehaviour {
 
     // attack range and aggro range for the creatures
-    public float range;
+    public float range = 2f;
 
     // amount of damage the creature can do
-    public int damage;
+    public int damage = 10;
 
     // attack delay
-    public float atk_delay;
-    public float atk_width;
-    public float atk_height;
+    public float atk_delay = 2f;
+    public float atk_width = 1f;
+    public float atk_height = 1f;
+    public float atk_offset = 1f;
+    private float atk_delay_frames;
     private float initial_delay;
 
     // The transform of the source which is attacking.
@@ -42,15 +44,11 @@ public class Attack_Controller : MonoBehaviour {
 
         target = GameObject.FindGameObjectWithTag( "player" );
 
-//<<<<<<< HEAD
-        //target_health = target.GetComponent( typeof( PlayerHealth ) ) as PlayerHealth;
-
         range_squared = range * range;
 
-        initial_delay = atk_delay;
-//=======
-        //target_health = target.GetComponent( typeof( PlayerHealth ) ) as PlayerHealth;
-//>>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
+        atk_delay_frames = atk_delay * 60;
+
+        initial_delay = atk_delay_frames;
 	}
 
 	// Update is called once per frame
@@ -64,25 +62,32 @@ public class Attack_Controller : MonoBehaviour {
 
         // try to make signed integers for bit fun! :D
         float directionX;
-        float directionY;
+
+        if ( this.gameObject.transform.position.x > target.transform.position.x )
+        {
+            directionX = -1;
+        }
+        else{
+            directionX = 1;
+        }
 
         if ( distance_to_player <= range_squared && atk_delay == 0.0f )
         {
             hitbox = Instantiate( Resources.Load( "Hitbox" ), source ) as GameObject;
             hitbox.transform.position = new Vector2(
-                this.gameObject.transform.position.x,
+                this.gameObject.transform.position.x + atk_offset * directionX,
                 this.gameObject.transform.position.y
             );
+
+            Hitbox_Controller hc = hitbox.GetComponent<Hitbox_Controller>();
+            hc.width = atk_width;
+            hc.height = atk_height;
 
             atk_delay = initial_delay;
         }
         else if ( distance_to_player <= range_squared )
         {
-//<<<<<<< HEAD
             atk_delay -= 1.0f;
-//=======
-            //target_health.DamageDealt( damage );
-//>>>>>>> 20b7d6d241d932a9a009a5fa52664ed7f8dff990
         }
 
         distance_to_player = GetDistanceSquared( target );
