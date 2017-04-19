@@ -6,16 +6,12 @@ public class PlayerMovement : MonoBehaviour {
 
 
     public float speed, jumpForce;
+
+    public bool facingRight;
+
     private Rigidbody2D rb2d;
     private int hasJumped;
     private Animator anim;
-    public int health = 6;
-    public bool isImmune = false;
-    public float immunityDuration = 1.5f;
-    public bool isDead = false;
-    private float immunityTime = 0f;
-    private float flickerDuration = 0.1f;
-    private float flickerTime = 0f;
 
     // Use this for initialization
     void Start()
@@ -24,24 +20,7 @@ public class PlayerMovement : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-   /* public void TakeDamage(int damage, bool playHitReaction)
-    {
-        if(this.isImmune == false && isDead == false)
-        {
-            this.health == this.health - damage;
-            Debug.Log("Player Health: " + this.health.ToString());
-            this.HUDCamera.GetComponent<GUIGame>().UpdateHealth(this.health);
-        }
-        if(this.health <= 0)
-        {
-            PlayerIsDead(playHitReaction);
-        }
-        else if (playHitReaction == true)
-        {
-            playHitReaction();
-        } 
-    }
-*/
+
     // Update is called once per frame
     void Update()
     {
@@ -62,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(new Vector2(1, 0) * speed * Time.deltaTime);
             anim.SetTrigger("WasRight");
             anim.ResetTrigger("MovingRight");
-
+            facingRight = true;
         }
         else if (Input.GetKey("d"))
         {
@@ -71,6 +50,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.ResetTrigger("MovingLeft");
             anim.ResetTrigger("WasLeft");
             anim.ResetTrigger("WasRight");
+            facingRight = true;
         }
 
         if (hasJumped > 0 && Input.GetKey("a"))
@@ -78,7 +58,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(new Vector2(-1, 0) * speed * Time.deltaTime);
             anim.SetTrigger("WasLeft");
             anim.ResetTrigger("MovingLeft");
-
+            facingRight = false;
         }
         else if (Input.GetKey("a"))
         {
@@ -87,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.ResetTrigger("MovingRight");
             anim.ResetTrigger("WasLeft");
             anim.ResetTrigger("WasRight");
+            facingRight = false;
         }
 
         if (Input.GetKeyUp("a"))
