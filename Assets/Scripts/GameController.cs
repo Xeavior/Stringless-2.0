@@ -62,5 +62,19 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "You died.";
         gameOver = true;
+
+        GameObject[] go = GameObject.FindGameObjectsWithTag("groundEnemy");
+
+        foreach ( GameObject enemy in go )
+        {
+            Destroy(enemy);
+        }
+
+        go = GameObject.FindGameObjectsWithTag("airEnemy");
+
+        foreach ( GameObject enemy in go )
+        {
+            Destroy(enemy);
+        }
     }
 }

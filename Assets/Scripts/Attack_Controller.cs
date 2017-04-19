@@ -71,7 +71,7 @@ public class Attack_Controller : MonoBehaviour {
             directionX = 1;
         }
 
-        if ( distance_to_player <= range_squared && atk_delay == 0.0f )
+        if ( distance_to_player <= range_squared && atk_delay_frames == 0.0f )
         {
             hitbox = Instantiate( Resources.Load( "Hitbox" ), source ) as GameObject;
             hitbox.transform.position = new Vector2(
@@ -83,11 +83,11 @@ public class Attack_Controller : MonoBehaviour {
             hc.width = atk_width;
             hc.height = atk_height;
 
-            atk_delay = initial_delay;
+            atk_delay_frames = initial_delay;
         }
         else if ( distance_to_player <= range_squared )
         {
-            atk_delay -= 1.0f;
+            atk_delay_frames -= 1.0f;
         }
 
         distance_to_player = GetDistanceSquared( target );

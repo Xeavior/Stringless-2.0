@@ -34,7 +34,7 @@ public class Hitbox_Controller : MonoBehaviour {
 
         if ( dx2 + dy2 < width/2 )
         {
-            PlayerHealth ph = target.GetComponent( typeof( PlayerHealth ) ) as PlayerHealth;
+            PlayerStats ph = target.GetComponent( typeof( PlayerStats ) ) as PlayerStats;
             ph.DamageDealt( damage );
             Destroy( this.gameObject );
         }
