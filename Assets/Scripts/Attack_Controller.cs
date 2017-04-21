@@ -15,6 +15,7 @@ public class Attack_Controller : MonoBehaviour {
     public float atk_width = 1f;
     public float atk_height = 1f;
     public float atk_offset = 1f;
+    public float knockback_force = 1f;
     private float atk_delay_frames;
     private float initial_delay;
 
@@ -82,7 +83,8 @@ public class Attack_Controller : MonoBehaviour {
             Hitbox_Controller hc = hitbox.GetComponent<Hitbox_Controller>();
             hc.width = atk_width;
             hc.height = atk_height;
-
+            hc.knockbackForce = knockback_force;
+            hc.kbDirection = new Vector2(directionX, 1);
             atk_delay_frames = initial_delay;
         }
         else if ( distance_to_player <= range_squared )

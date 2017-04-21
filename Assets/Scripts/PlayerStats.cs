@@ -30,6 +30,9 @@ public class PlayerStats : MonoBehaviour {
     void DamageDealt(int damage)
     {
         current_health -= damage;
+
+        //make the player flash red using this.
+        transform.GetComponent<SpriteRenderer>().color = Color.red;
         if (current_health < 0)
         {
             current_health = 0;
