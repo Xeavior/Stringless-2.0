@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: b6df6a2591adc0f47873d2c5d22ab5bf
-timeCreated: 1491583075
+timeCreated: 1493062632
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - heart1: {instanceID: 0}
-  - heart2: {instanceID: 0}
-  - heart3: {instanceID: 0}
+  - heart1: {fileID: 1252752063895036, guid: fec8e030514b3d748a8815876c161c8e, type: 2}
+  - heart2: {fileID: 1353326528313386, guid: d090cf388840fb44c83b03dbd0f34385, type: 2}
+  - heart3: {fileID: 1314605975994126, guid: c27a9d477c4b1c14aa0a8495d0d37e03, type: 2}
   - heartFull: {fileID: 21300714, guid: 88f56925ceeacac41a7c13fa6068f4cb, type: 3}
   - heartHalf: {fileID: 21300716, guid: 88f56925ceeacac41a7c13fa6068f4cb, type: 3}
   - heartEmpty: {fileID: 21300718, guid: 88f56925ceeacac41a7c13fa6068f4cb, type: 3}
