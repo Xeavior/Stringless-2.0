@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour {
 
     public int max_health;
 
-    private int current_health;
+    public int current_health;
 
     // Use this for initialization
     void Start()
