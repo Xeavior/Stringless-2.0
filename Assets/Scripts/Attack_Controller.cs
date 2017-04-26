@@ -87,7 +87,7 @@ public class Attack_Controller : MonoBehaviour {
             hc.kbDirection = new Vector2(directionX, 1);
             atk_delay_frames = initial_delay;
         }
-        else if ( distance_to_player <= range_squared )
+        else if ( !( atk_delay_frames <= 0f ) )
         {
             atk_delay_frames -= 1.0f;
         }

@@ -26,10 +26,12 @@ public class PlayerStats : MonoBehaviour {
         }
     }
 
-    public
+public
     void DamageDealt(int damage)
     {
         current_health -= damage;
+
+        this.gameObject.GetComponent<Health>().UpdateHealth(current_health);
 
         //make the player flash red using this.
         transform.GetComponent<SpriteRenderer>().color = Color.red;
