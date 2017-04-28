@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public GameObject lHeart, mHeart, rHeart;
-    private Image heart1, heart2, heart3;
     public Sprite heartFull, heartHalf, heartEmpty;
-    public PlayerStats health;
+    public Stats health;
+
     private GameObject player;
+    private Image heart1, heart2, heart3;
+
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("player");
         heart1 = lHeart.GetComponent<Image>();
         heart2 = mHeart.GetComponent<Image>();
         heart3 = rHeart.GetComponent<Image>();
-        health = player.GetComponent<PlayerStats>();
+        health = player.GetComponent<Stats>();
     }
     public void UpdateHealth(int health)
 {  

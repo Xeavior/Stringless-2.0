@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float speed, jumpForce;
 
-    public bool facingRight;
+    public int facingRight;
 
     private Rigidbody2D rb2d;
     private int hasJumped;
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(new Vector2(1, 0) * speed * Time.deltaTime);
             anim.SetTrigger("WasRight");
             anim.ResetTrigger("MovingRight");
-            facingRight = true;
+            facingRight = 1;
         }
         else if (Input.GetKey("d"))
         {
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.ResetTrigger("MovingLeft");
             anim.ResetTrigger("WasLeft");
             anim.ResetTrigger("WasRight");
-            facingRight = true;
+            facingRight = 1;
         }
 
         if (hasJumped > 0 && Input.GetKey("a"))
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.Translate(new Vector2(-1, 0) * speed * Time.deltaTime);
             anim.SetTrigger("WasLeft");
             anim.ResetTrigger("MovingLeft");
-            facingRight = false;
+            facingRight = -1;
         }
         else if (Input.GetKey("a"))
         {
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.ResetTrigger("MovingRight");
             anim.ResetTrigger("WasLeft");
             anim.ResetTrigger("WasRight");
-            facingRight = false;
+            facingRight = -1;
         }
 
         if (Input.GetKeyUp("a"))

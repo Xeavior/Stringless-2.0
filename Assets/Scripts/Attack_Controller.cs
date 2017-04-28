@@ -22,8 +22,8 @@ public class Attack_Controller : MonoBehaviour {
     // The transform of the source which is attacking.
     private Transform source;
 
-    // The player that the AI wishes to target.
-    private GameObject target;
+    // The target.
+    private Collider2D target;
    // private PlayerHealth target_health;
 
     // used to ignore roots
@@ -43,7 +43,7 @@ public class Attack_Controller : MonoBehaviour {
     {
         source = this.GetComponent<Transform>();
 
-        target = GameObject.FindGameObjectWithTag( "player" );
+        target = GameObject.FindGameObjectWithTag( "player" ).GetComponent<Collider2D>();
 
         range_squared = range * range;
 
@@ -57,7 +57,7 @@ public class Attack_Controller : MonoBehaviour {
     {
         if ( target == null )
         {
-            target = GameObject.FindGameObjectWithTag( "player" );
+            target = GameObject.FindGameObjectWithTag( "player" ).GetComponent<Collider2D>();
             distance_to_player = GetDistanceSquared( target );
         }
 
@@ -85,6 +85,7 @@ public class Attack_Controller : MonoBehaviour {
             hc.height = atk_height;
             hc.knockbackForce = knockback_force;
             hc.kbDirection = new Vector2(directionX, 1);
+            hc.target = target;
             atk_delay_frames = initial_delay;
         }
         else if ( !( atk_delay_frames <= 0f ) )
@@ -100,10 +101,11 @@ public class Attack_Controller : MonoBehaviour {
     }
 
     private
-    float GetDistanceSquared( GameObject other )
+    float GetDistanceSquared( Collider2D other )
     {
-        dx = GetDX( other );
-        dy = GetDY( other );
+        GameObject tar = other.gameObject;
+        dx = GetDX( tar );
+        dy = GetDY( tar );
 
         float dx2 = dx * dx;
         float dy2 = dy * dy;
