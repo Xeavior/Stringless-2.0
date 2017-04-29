@@ -20,19 +20,18 @@ public class Stats : MonoBehaviour {
     {
         if (current_health == 0)
         {
-            GameObject gco = GameObject.FindGameObjectWithTag("GameController");
-            GameController gc = gco.GetComponent<GameController>();
-
             Destroy(this.gameObject);
-            gc.Death();
         }
     }
 
-public void DamageDealt(int damage)
+    public void DamageDealt(int damage)
     {
         current_health -= damage;
 
-        this.gameObject.GetComponent<Health>().UpdateHealth(current_health);
+        if ( transform.parent.tag == "player" )
+        {
+            this.gameObject.GetComponent<Health>().UpdateHealth(current_health);
+        }
 
         //make the player flash red using this.
         StartCoroutine(ColorFlash());

@@ -76,9 +76,6 @@ public class PlayerMovement : MonoBehaviour {
             anim.ResetTrigger("MovingLeft");
         }
 
-
-        
-
         if (Input.GetKeyUp("d"))
         {
             anim.SetTrigger("WasRight");
@@ -93,6 +90,17 @@ public class PlayerMovement : MonoBehaviour {
                 rb2d.velocity = new Vector2(0, 1 * jumpForce);
                 hasJumped++;
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        GameObject gco = GameObject.FindGameObjectWithTag("GameController");
+        GameController gc = gco.GetComponent<GameController>();
+
+        if ( GetComponent<Stats>().current_health == 0 )
+        {
+            gc.Death();
         }
     }
 

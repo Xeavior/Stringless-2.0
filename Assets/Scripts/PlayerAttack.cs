@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour {
 
         source = this.gameObject.transform;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         if ( canAttack && Input.GetMouseButtonDown(0))
@@ -47,10 +47,11 @@ public class PlayerAttack : MonoBehaviour {
             );
 
             Hitbox_Controller hc = hitbox.GetComponent<Hitbox_Controller>();
-            hc.height = atk_height;
             hc.width = atk_width;
+            hc.height = atk_height;
+            hc.damage = damage;
             hc.knockbackForce = knockback_force;
-
+            hc.kbDirection = new Vector2(GetComponent<PlayerMovement>().facingRight, 1);
             atk_delay_frames = initial_delay;
         }
 	}

@@ -22,12 +22,11 @@ public class Attack_Controller : MonoBehaviour {
     // The transform of the source which is attacking.
     private Transform source;
 
-    // The target.
-    private Collider2D target;
-   // private PlayerHealth target_health;
-
     // used to ignore roots
     private float range_squared;
+
+    // the target of the enemy
+    private GameObject target;
 
     // the distance to the player squared.
     private float distance_to_player;
@@ -43,7 +42,7 @@ public class Attack_Controller : MonoBehaviour {
     {
         source = this.GetComponent<Transform>();
 
-        target = GameObject.FindGameObjectWithTag( "player" ).GetComponent<Collider2D>();
+        target = GameObject.FindGameObjectWithTag( "player" );
 
         range_squared = range * range;
 
@@ -57,7 +56,7 @@ public class Attack_Controller : MonoBehaviour {
     {
         if ( target == null )
         {
-            target = GameObject.FindGameObjectWithTag( "player" ).GetComponent<Collider2D>();
+            target = GameObject.FindGameObjectWithTag( "player" );
             distance_to_player = GetDistanceSquared( target );
         }
 
@@ -83,9 +82,9 @@ public class Attack_Controller : MonoBehaviour {
             Hitbox_Controller hc = hitbox.GetComponent<Hitbox_Controller>();
             hc.width = atk_width;
             hc.height = atk_height;
+            hc.damage = damage;
             hc.knockbackForce = knockback_force;
             hc.kbDirection = new Vector2(directionX, 1);
-            hc.target = target;
             atk_delay_frames = initial_delay;
         }
         else if ( !( atk_delay_frames <= 0f ) )
@@ -101,11 +100,10 @@ public class Attack_Controller : MonoBehaviour {
     }
 
     private
-    float GetDistanceSquared( Collider2D other )
+    float GetDistanceSquared( GameObject other )
     {
-        GameObject tar = other.gameObject;
-        dx = GetDX( tar );
-        dy = GetDY( tar );
+        dx = GetDX( other );
+        dy = GetDY( other );
 
         float dx2 = dx * dx;
         float dy2 = dy * dy;

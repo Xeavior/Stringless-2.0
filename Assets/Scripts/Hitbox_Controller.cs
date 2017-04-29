@@ -16,9 +16,6 @@ public class Hitbox_Controller : MonoBehaviour {
     public float knockbackForce;
     public Vector2 kbDirection;
 
-    private Stats ph;
-    private Rigidbody2D rb2d;
-
     // Use this for initialization
     void Start () {
         //compensating knockback force
@@ -29,14 +26,6 @@ public class Hitbox_Controller : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if ( GetComponent<Collider2D>().IsTouching( ) )
-        {
-            ph.DamageDealt( damage );
-
-            rb2d.AddForce(knockbackForce * Vector2.Scale(kbDirection,new Vector2(1,1)).normalized);
-
-            Destroy( this.gameObject );
-        }
 	}
 
     void FixedUpdate () {
@@ -49,9 +38,13 @@ public class Hitbox_Controller : MonoBehaviour {
             time_to_live -= 0.5f;
         }
     }
-    
-    void OnCollisionEnter2D( Collider2D other )
+
+    void OnTriggerEnter2D( Collider2D other )
     {
-        //TODO: Add in damage to the player/enemy. Make it generic.
+        Stats stats = other.GetComponent<Stats>();
+
+        stats.DamageDealt( damage );
+
+        Destroy( this.gameObject );
     }
 }
