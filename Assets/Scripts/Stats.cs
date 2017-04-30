@@ -28,7 +28,9 @@ public class Stats : MonoBehaviour {
     {
         current_health -= damage;
 
-        if ( transform.parent.tag == "player" )
+        //Debug.Log(transform.tag);
+
+        if ( transform.tag == "player" )
         {
             this.gameObject.GetComponent<Health>().UpdateHealth(current_health);
         }

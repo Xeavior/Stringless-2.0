@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        Debug.Log(transform.tag);
+        //Debug.Log(transform.tag);
    
     }
     IEnumerator SearchForPlayer()

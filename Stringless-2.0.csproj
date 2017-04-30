@@ -91,6 +91,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2D Camera Boundaries and Transitions\Scripts\CameraManager.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\AI\AIBase.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\AI\AIPath.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\AI\TurnBasedAI.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\Draw.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\EditorResourceHelper.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\GraphUpdateProcessor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\MovementUtilities.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathInterpolator.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathProcessor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathReturnQueue.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\WorkItemProcessor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\VersionedMonoBehaviour.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\ManualRVOAgent.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\NavmeshBase.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\GraphTransform.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\GridLookup.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\NavmeshTile.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\PointKDTree.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\TurnBased\BlockManager.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\TurnBased\SingleNodeBlocker.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Utilities\Funnel.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Utilities\GraphGizmoHelper.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Utilities\RetainedGizmos.cs" />
     <Compile Include="Assets\Scripts\Attack_Controller.cs" />
     <Compile Include="Assets\Scripts\BatAnimController.cs" />
     <Compile Include="Assets\Scripts\BoundaryScript.cs" />
@@ -104,14 +127,14 @@
     <Compile Include="Assets\Scripts\OldScripts\boxScript.cs" />
     <Compile Include="Assets\Scripts\OldScripts\lockedBox.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Stats.cs" />
     <Compile Include="Assets\Sprites\SpritesDemo\Enemies\Goblin\GoblinAnimationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh.shader" />
     <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
+    <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
     <None Include="Assets\Plugins\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
     <None Include="Assets\Plugins\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
     <None Include="Assets\Plugins\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />

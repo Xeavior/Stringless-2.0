@@ -41,9 +41,16 @@ public class Hitbox_Controller : MonoBehaviour {
 
     void OnTriggerEnter2D( Collider2D other )
     {
+        //Debug.Log(other.tag);
+
+        //have to handle stats-less objects in scene
+        if (other.tag == "platform")
+            return;
+
         Stats stats = other.GetComponent<Stats>();
 
         stats.DamageDealt( damage );
+        other.GetComponent<Rigidbody2D>().AddForce(kbDirection * knockbackForce);
 
         Destroy( this.gameObject );
     }
